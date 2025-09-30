@@ -124,5 +124,6 @@
     "type": "git",
     "url": "https://github.com/xtyooo/switch2jetbrains.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "icon": "images/icon.png"
 }
