@@ -36,7 +36,7 @@ export function activate(context: vscode.ExtensionContext) {
             '了解更多'
         ).then(selection => {
             if (selection === '了解更多') {
-                vscode.env.openExternal(vscode.Uri.parse('https://github.com/yourusername/switch2jetbrains'));
+                vscode.env.openExternal(vscode.Uri.parse('https://github.com/xtyooo/switch2jetbrains'));
             }
         });
         context.globalState.update('hasShownWelcome', true);

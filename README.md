@@ -46,41 +46,42 @@ A VS Code/Cursor extension that enables seamless switching from Cursor/VS Code t
 2. Click `Install`
 3. Reload window
 
-### 方法 2: 本地安装
+### Method 2: Local Installation
 
-1. 从 [Releases](https://github.com/yourusername/switch2jetbrains/releases) 下载最新的 `.vsix` 文件
-2. VS Code → `扩展` → `...` → `从 VSIX 安装...`
-3. 选择下载的文件
+1. Download the latest `.vsix` file from [Releases](https://github.com/xtyooo/switch2jetbrains/releases)
+2. VS Code/Cursor → `Extensions` → `...` → `Install from VSIX...`
+3. Select the downloaded file
+4. Reload window
 
-## 🚀 使用指南
+## 🚀 Usage Guide
 
-### 基础使用
+### Basic Usage
 
-#### 打开项目
+#### Open Project
 
-* **快捷键:**
+* **Keyboard Shortcuts:**
   * macOS: `Option+Shift+P`
   * Windows/Linux: `Alt+Shift+P`
-* **右键菜单:** 右键点击项目 → `在 JetBrains IDE 中打开项目`
-* **命令面板:** `Ctrl+Shift+P` → 输入 `Switch2JetBrains: 在 JetBrains IDE 中打开项目`
+* **Context Menu:** Right-click in project → `Open Project in JetBrains IDE`
+* **Command Palette:** `Cmd+Shift+P` (Windows: `Ctrl+Shift+P`) → Type `Switch2JetBrains: Open Project`
 
-#### 打开当前文件
+#### Open Current File
 
-* **快捷键:**
+* **Keyboard Shortcuts:**
   * macOS: `Option+Shift+O`
   * Windows/Linux: `Alt+Shift+O`
-* **右键菜单:** 在编辑器中右键 → `在 JetBrains IDE 中打开当前文件`
-* **命令面板:** `Ctrl+Shift+P` → 输入 `Switch2JetBrains: 在 JetBrains IDE 中打开当前文件`
+* **Context Menu:** Right-click in editor → `Open File in JetBrains IDE`
+* **Command Palette:** `Cmd+Shift+P` (Windows: `Ctrl+Shift+P`) → Type `Switch2JetBrains: Open File`
 
-### 配置
+### Configuration
 
-在 `设置` → 搜索 `Switch2JetBrains`:
+Go to `Settings/Preferences` → Search for `Switch2JetBrains`:
 
-* **自动检测 IDE** (`switch2jetbrains.autoDetect`): 自动检测已安装的 JetBrains IDE（默认启用）
-* **默认 IDE** (`switch2jetbrains.defaultIDE`): 设置默认使用的 IDE，留空则每次询问
-* **IDE 列表** (`switch2jetbrains.ides`): 手动配置 IDE 列表
+* **Auto Detect** (`switch2jetbrains.autoDetect`): Automatically detect installed JetBrains IDEs (enabled by default)
+* **Default IDE** (`switch2jetbrains.defaultIDE`): Set default IDE to use, leave empty to ask each time
+* **IDE List** (`switch2jetbrains.ides`): Manually configure IDE list
 
-#### 手动配置 IDE 示例
+#### Manual Configuration Example
 
 ```json
 {
@@ -98,103 +99,120 @@ A VS Code/Cursor extension that enables seamless switching from Cursor/VS Code t
 }
 ```
 
-### 支持的 IDE
+### Supported IDEs
 
-* IntelliJ IDEA
-* GoLand
-* PyCharm
-* WebStorm
-* PhpStorm
-* RustRover
-* CLion
-* Android Studio
-* DataGrip
-* 及其他 JetBrains IDE
+✅ IntelliJ IDEA  
+✅ GoLand  
+✅ PyCharm  
+✅ WebStorm  
+✅ PhpStorm  
+✅ RustRover  
+✅ CLion  
+✅ Android Studio  
+✅ DataGrip  
+✅ And other JetBrains IDEs
 
-## 🔄 与 Switch2Cursor 配合使用
+## 🔄 Use with Switch2Cursor
 
-推荐与 [Switch2Cursor](https://github.com/qczone/switch2cursor) 插件配合使用，实现双向无缝切换：
+Recommended to use together with [Switch2Cursor](https://github.com/qczone/switch2cursor) for bidirectional seamless switching:
 
 * **Switch2Cursor**: JetBrains IDE → Cursor/VS Code
 * **Switch2JetBrains**: Cursor/VS Code → JetBrains IDE
 
-## 🧑‍💻 开发指南
+Perfect workflow! 🎯
 
-### 构建项目
+## 🧑‍💻 Development Guide
+
+### Build Project
 
 ```bash
-# 克隆仓库
-git clone https://github.com/yourusername/switch2jetbrains.git
+# Clone repository
+git clone https://github.com/xtyooo/switch2jetbrains.git
 cd switch2jetbrains
 
-# 安装依赖
+# Install dependencies
 npm install
 
-# 编译
+# Compile
 npm run compile
 
-# 打包
+# Package
 npm run package
 ```
 
-### 调试
+### Debugging
 
-1. 在 VS Code 中打开项目
-2. 按 `F5` 启动调试
-3. 在新窗口中测试插件
+1. Open project in VS Code
+2. Press `F5` to start debugging
+3. Test the extension in the new window
 
-### 贡献
+### Contributing
 
-欢迎提交 Pull Request！
+Pull Requests are welcome!
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 提交 Pull Request
+1. Fork this repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Submit Pull Request
 
-## 🙋 常见问题
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
 
-### 1. 安装后快捷键/菜单点击没有反应？
+## 🙋 FAQ
 
-检查设置中是否正确配置了 IDE 路径，或启用自动检测功能。
+### 1. Shortcuts/menu not working after installation?
 
-### 2. Linux 上窗口无法自动激活？
+**Solution:** Check if IDE path is correctly configured in settings, or enable auto-detection.
 
-需要安装 `wmctrl` 或 `xdotool`:
+### 2. Window not activating automatically on Linux?
+
+**Solution:** Install `wmctrl` or `xdotool`:
 
 ```bash
 # Ubuntu/Debian
 sudo apt-get install wmctrl
 
-# 或者
+# Or
 sudo apt-get install xdotool
+
+# Fedora
+sudo dnf install wmctrl
+
+# Arch Linux
+sudo pacman -S wmctrl
 ```
 
-### 3. 如何修改快捷键？
+### 3. How to customize shortcuts?
 
-在 `设置` → `键盘快捷方式` → 搜索 `switch2jetbrains` 进行修改。
+**Solution:** Go to `Settings` → `Keyboard Shortcuts` → Search for `switch2jetbrains`
 
-### 4. 支持哪些平台？
+### 4. Which platforms are supported?
 
-* macOS
-* Windows
-* Linux
+✅ macOS  
+✅ Windows  
+✅ Linux
 
-## 📄 许可证
+## 📄 License
 
-本项目基于 [MIT 许可证](LICENSE) 开源。
+This project is licensed under the [MIT License](LICENSE).
 
-## 📮 反馈
+## 📮 Feedback
 
-如遇到问题或有建议，请通过以下方式反馈：
+If you encounter any issues or have suggestions:
 
-* 提交 [GitHub Issue](https://github.com/yourusername/switch2jetbrains/issues)
+* Submit [GitHub Issue](https://github.com/xtyooo/switch2jetbrains/issues)
+* Start a [Discussion](https://github.com/xtyooo/switch2jetbrains/discussions)
 
 ## 🌟 Star History
 
-如果这个项目对你有帮助，请给个 Star ⭐️
+If this project helps you, please give it a Star ⭐️
+
+[![Star History Chart](https://api.star-history.com/svg?repos=xtyooo/switch2jetbrains&type=Date)](https://star-history.com/#xtyooo/switch2jetbrains&Date)
+
+## 🙏 Acknowledgments
+
+Inspired by [Switch2Cursor](https://github.com/qczone/switch2cursor)
 
 ---
 
-**享受流畅的编辑器切换体验！** 🚀
+**Enjoy seamless editor switching!** 🚀

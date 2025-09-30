@@ -9,7 +9,7 @@
 
 ## 🔍 简介
 
-一个 VS Code/Cursor 插件，让你能够从 Cursor/VS Code 无缝切换到 JetBrains 系列 IDE（IntelliJ IDEA、GoLand、PyCharm 等），并自动同步光标位置。
+一个强大的 VS Code/Cursor 扩展，让你能够从 Cursor/VS Code 无缝切换到 JetBrains 系列 IDE（IntelliJ IDEA、GoLand、PyCharm 等），并自动同步光标位置，提升跨编辑器开发效率。
 
 ![Switch2JetBrains 演示](./images/demo.gif)
 
@@ -50,7 +50,8 @@
 
 1. 从 [GitHub Releases](https://github.com/xtyooo/switch2jetbrains/releases) 下载最新的 `.vsix` 文件
 2. VS Code/Cursor → `扩展` → `...` → `从 VSIX 安装...`
-3. 选择下载的文件
+3. 选择下载的 `.vsix` 文件
+4. 重新加载窗口
 
 ## 🚀 使用指南
 
@@ -114,7 +115,7 @@
 ```json
 {
   "name": "IntelliJ IDEA",
-  "path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\bin\\idea64.exe"
+  "path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.3\\bin\\idea64.exe"
 }
 ```
 
@@ -125,6 +126,8 @@
   "path": "/opt/idea/bin/idea.sh"
 }
 ```
+
+💡 **提示**: 插件默认会自动检测常见安装位置，大多数情况下无需手动配置。
 
 ### 支持的 IDE
 
@@ -141,10 +144,12 @@
 
 ## 🔄 与 Switch2Cursor 配合使用
 
-推荐与 [Switch2Cursor](https://github.com/qczone/switch2cursor) 插件配合使用，实现双向无缝切换：
+💡 **推荐组合**: 与 [Switch2Cursor](https://github.com/qczone/switch2cursor) 插件配合使用，实现双向无缝切换：
 
-* **Switch2Cursor**: JetBrains IDE → Cursor/VS Code
-* **Switch2JetBrains**: Cursor/VS Code → JetBrains IDE
+| 方向 | 插件 | 快捷键 |
+|------|------|--------|
+| JetBrains → Cursor | [Switch2Cursor](https://github.com/qczone/switch2cursor) | `Option+Shift+O/P` |
+| Cursor → JetBrains | Switch2JetBrains | `Option+Shift+O/P` |
 
 完美的双向工作流！🎯
 
@@ -160,7 +165,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/switch2jetbrains.git
+git clone https://github.com/xtyooo/switch2jetbrains.git
 cd switch2jetbrains
 
 # 安装依赖
@@ -211,17 +216,21 @@ switch2jetbrains/
 ### 1. 安装后快捷键/菜单点击没有反应？
 
 **解决方案:**
-- 检查设置中是否正确配置了 IDE 路径
-- 确保启用了自动检测功能（默认已启用）
-- 打开命令面板，手动运行命令测试
-- 查看 VS Code 的开发者工具控制台是否有错误信息（`帮助` → `切换开发人员工具`）
+1. 检查设置中是否正确配置了 IDE 路径
+2. 确保启用了自动检测功能（默认已启用）
+3. 打开命令面板，手动运行命令测试
+4. 查看开发者工具控制台是否有错误：`帮助` → `切换开发人员工具`
+5. 确认 JetBrains IDE 已正确安装
 
 ### 2. 自动检测没有找到我的 IDE？
 
 **解决方案:**
-- 手动在设置中添加 IDE 路径
-- 确保 IDE 安装在标准位置
-- 对于通过 JetBrains Toolbox 安装的 IDE，路径可能不同，需要手动配置
+1. **手动配置**: 在设置中添加 IDE 路径（参见配置示例）
+2. **检查路径**: 确保 IDE 安装在标准位置
+3. **JetBrains Toolbox**: 通过 Toolbox 安装的 IDE 路径可能不同：
+   - macOS: `~/Library/Application Support/JetBrains/Toolbox/apps/`
+   - Windows: `%LOCALAPPDATA%\JetBrains\Toolbox\apps\`
+   - Linux: `~/.local/share/JetBrains/Toolbox/apps/`
 
 ### 3. Linux 上窗口无法自动激活？
 
@@ -254,7 +263,15 @@ sudo pacman -S wmctrl
 
 ### 6. 光标位置同步不准确？
 
-这可能是由于编辑器的字符编码或制表符设置不同。请确保 Cursor/VS Code 和 JetBrains IDE 使用相同的编码和缩进设置。
+**可能原因:**
+- 编辑器的字符编码不同
+- 制表符/空格设置不一致
+- 文件未保存
+
+**解决方案:**
+1. 确保两个编辑器使用相同的字符编码（UTF-8 推荐）
+2. 统一缩进设置（空格 vs 制表符）
+3. 跳转前先保存文件
 
 ## 📄 许可证
 
@@ -262,12 +279,17 @@ sudo pacman -S wmctrl
 
 ## 📮 反馈与支持
 
-如遇到问题或有建议，请通过以下方式反馈：
+如遇到问题或有建议，欢迎反馈：
 
-* 提交 [GitHub Issue](https://github.com/xtyooo/switch2jetbrains/issues)
-* 发起 [GitHub Discussion](https://github.com/xtyooo/switch2jetbrains/discussions)
+* 🐛 提交 [GitHub Issue](https://github.com/xtyooo/switch2jetbrains/issues) - 报告 Bug
+* 💡 发起 [GitHub Discussion](https://github.com/xtyooo/switch2jetbrains/discussions) - 功能建议和讨论
+* ⭐ 给项目点 Star - 支持项目发展
 
-## 🌟 致谢
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=xtyooo/switch2jetbrains&type=Date)](https://star-history.com/#xtyooo/switch2jetbrains&Date)
+
+## 🙏 致谢
 
 感谢 [Switch2Cursor](https://github.com/qczone/switch2cursor) 项目的灵感启发！
 

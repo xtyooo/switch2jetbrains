@@ -1,9 +1,9 @@
 {
   "name": "switch2jetbrains",
   "displayName": "Switch2JetBrains",
-  "description": "从 Cursor/VS Code 无缝切换到 JetBrains IDE（IntelliJ IDEA、GoLand 等），支持光标位置同步",
+  "description": "Seamlessly switch from Cursor/VS Code to JetBrains IDEs (IntelliJ IDEA, GoLand, etc.) with cursor position sync",
   "version": "1.0.0",
-  "publisher": "your-publisher-name",
+  "publisher": "xtyooo",
   "engines": {
     "vscode": "^1.75.0"
   },
