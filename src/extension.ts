@@ -9,6 +9,13 @@ export function activate(context: vscode.ExtensionContext) {
 
     const manager = new JetBrainsManager();
 
+    // 🚀 关键优化：插件激活时立即预加载 IDE 列表（后台异步）
+    manager.preloadIDEs().then(() => {
+        console.log('Switch2JetBrains: IDE 列表已预加载');
+    }).catch(err => {
+        console.error('Switch2JetBrains: 预加载失败', err);
+    });
+
     // 注册命令：打开当前文件到 JetBrains IDE
     const openFileDisposable = vscode.commands.registerCommand(
         'switch2jetbrains.openFile',
