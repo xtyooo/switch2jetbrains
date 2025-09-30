@@ -1,0 +1,128 @@
+{
+  "name": "switch2jetbrains",
+  "displayName": "Switch2JetBrains",
+  "description": "从 Cursor/VS Code 无缝切换到 JetBrains IDE（IntelliJ IDEA、GoLand 等），支持光标位置同步",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "jetbrains",
+    "idea",
+    "goland",
+    "cursor",
+    "switch",
+    "开发工具"
+  ],
+  "activationEvents": [
+    "onCommand:switch2jetbrains.openFile",
+    "onCommand:switch2jetbrains.openProject"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "switch2jetbrains.openFile",
+        "title": "在 JetBrains IDE 中打开当前文件",
+        "category": "Switch2JetBrains"
+      },
+      {
+        "command": "switch2jetbrains.openProject",
+        "title": "在 JetBrains IDE 中打开项目",
+        "category": "Switch2JetBrains"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "switch2jetbrains.openFile",
+        "key": "alt+shift+o",
+        "mac": "option+shift+o",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "switch2jetbrains.openProject",
+        "key": "alt+shift+p",
+        "mac": "option+shift+p",
+        "when": "workspaceFolderCount > 0"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "switch2jetbrains.openFile",
+          "group": "navigation",
+          "when": "editorTextFocus"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "switch2jetbrains.openProject",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Switch2JetBrains",
+      "properties": {
+        "switch2jetbrains.ides": {
+          "type": "array",
+          "default": [],
+          "description": "JetBrains IDE 列表配置",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "IDE 名称（如 IntelliJ IDEA、GoLand）"
+              },
+              "path": {
+                "type": "string",
+                "description": "IDE 可执行文件路径"
+              }
+            },
+            "required": [
+              "name",
+              "path"
+            ]
+          }
+        },
+        "switch2jetbrains.defaultIDE": {
+          "type": "string",
+          "default": "",
+          "description": "默认 IDE 名称（留空则每次询问）"
+        },
+        "switch2jetbrains.autoDetect": {
+          "type": "boolean",
+          "default": true,
+          "description": "自动检测已安装的 JetBrains IDE"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xtyooo/switch2jetbrains.git"
+  },
+  "license": "MIT"
+}
